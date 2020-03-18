@@ -18,7 +18,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-surround'
-  Plug 'terryma/vim-multiple-cursors'
   Plug 'vim-syntastic/syntastic'
   Plug 'pangloss/vim-javascript'
   Plug 'mxw/vim-jsx'
@@ -30,11 +29,10 @@ call plug#begin('~/.vim/plugged')
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
-  Plug 'jceb/vim-orgmode'
   Plug 'tpope/vim-rails'
   Plug 'gabrielelana/vim-markdown'
-  Plug 'ycm-core/YouCompleteMe', { 'do': '~/.vim/plugged/YouCompleteMe/install.py' }
   Plug 'nathanaelkane/vim-indent-guides'
+  Plug 'rizzatti/dash.vim'
 call plug#end()
 
 nnoremap Q <Nop>
@@ -55,6 +53,7 @@ nmap <silent> <CR> :TestFile <CR>
 nmap <silent> <Leader>t :TestLas<CR>
 
 let test#strategy = "neovim"
+let test#neovim#term_position = "vert"
 
 if has('nvim')
   tmap <C-o> <C-\><C-n>
@@ -114,6 +113,7 @@ autocmd BufLeave,FocusLost * silent! update
 
 set showcmd
 let g:airline_powerline_fonts = 1
+let g:airline_theme='bubblegum'
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
@@ -182,6 +182,7 @@ let g:ale_fixers = {
 let g:ale_history_enabled = 0
 let g:ale_lint_on_enter = -1
 let g:ale_lint_on_text_changed = 'never'
+
 let g:airline#extensions#ale#enabled = 0
 
 " imap <F5> <C-r>=strftime('%c')<CR>
@@ -199,5 +200,6 @@ nnoremap <silent> <leader>fr :call LanguageClient_textDocument_references()<CR>
 nnoremap <silent> <leader>d :call LanguageClient_textDocument_definition()<CR>
 nnoremap <silent> <leader>h :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> <leader>m :call LanguageClient_contextMenu()<CR>
+nmap <silent> <leader>d <Plug>DashSearch
 
 set path+=app/javascript
