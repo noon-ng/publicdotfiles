@@ -9,19 +9,17 @@ set softtabstop=0 expandtab shiftwidth=2 smarttab
 
 call plug#begin('~/.vim/plugged')
   Plug 'mcchrish/nnn.vim'
-  Plug 'benmills/vimux'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'amadeus/vim-mjml'
   Plug 'vim-ruby/vim-ruby'
-  Plug 'lifepillar/vim-solarized8'
   Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-surround'
-  Plug 'vim-syntastic/syntastic'
   Plug 'pangloss/vim-javascript'
   Plug 'mxw/vim-jsx'
-  Plug 'w0rp/ale'
+  Plug 'dense-analysis/ale'
   Plug 'janko-m/vim-test'
   Plug '/usr/local/opt/fzf'
   Plug 'junegunn/fzf.vim'
@@ -33,6 +31,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'gabrielelana/vim-markdown'
   Plug 'nathanaelkane/vim-indent-guides'
   Plug 'rizzatti/dash.vim'
+  Plug 'machakann/vim-highlightedyank'
+  Plug 'mtth/scratch.vim'
 call plug#end()
 
 nnoremap Q <Nop>
@@ -45,15 +45,13 @@ vmap , \
 
 nmap <silent> <Leader>a :Rg<CR>
 nmap <silent> <Leader>A :GitFiles<CR>
-nmap <silent> <C-p> :FZF<CR>
+nmap <silent> <C-p> :GFiles --exclude-standard --others --cached<CR>
 nmap <silent> <C-c> :Buffers<CR>
 
-nmap <silent> <Leader>R :TestNearest<CR>
 nmap <silent> <CR> :TestFile <CR>
-nmap <silent> <Leader>t :TestLas<CR>
 
 let test#strategy = "neovim"
-let test#neovim#term_position = "vert"
+let test#neovim#term_position = "tab"
 
 if has('nvim')
   tmap <C-o> <C-\><C-n>
@@ -113,6 +111,9 @@ autocmd BufLeave,FocusLost * silent! update
 
 set showcmd
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#fugitiveline#enabled = 0
+let g:airline_section_b = ''
 let g:airline_theme='bubblegum'
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
@@ -174,14 +175,17 @@ let g:loaded_netrwPlugin = 1
 let g:ale_sign_error = 'e'
 let g:ale_sign_warning = 'e'
 let g:ale_fix_on_save = 1
+let g:ale_open_list = 1
+let g:ale_set_quickfix = 1
 let g:ale_fixers = {
       \ 'javascript': ['prettier'],
       \ 'jsx': ['prettier'],
       \ 'ruby': ['rubocop'],
       \ }
 let g:ale_history_enabled = 0
-let g:ale_lint_on_enter = -1
 let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_enter = 0
 
 let g:airline#extensions#ale#enabled = 0
 
