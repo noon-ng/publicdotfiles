@@ -58,12 +58,10 @@ if has('nvim')
 endif
 
 let test#ruby#rspec#options = {'file': '--format documentation'}
+let g:scratch_persistence_file = '~/.nuno/.vimscratch'
 
-let g:nnn#set_default_mappings = 0
-
-nnoremap <leader>n :NnnPicker '%:p:h'<CR>
-
-let g:nnn#layout = 'vnew'
+let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } }
+let g:nnn#command = 'nnn -o'
 
 let g:nnn#action = {
       \ '<c-t>': 'tab split',
@@ -164,9 +162,9 @@ autocmd BufRead {*_spec.rb,spec_helper.rb} syn keyword rubyRspec
       \ xit
 
 highlight def link rubyRspec Function
-command Q q
-command W w
-command Wq wq
+command! Q q
+command! W w
+command! Wq wq
 
 " Disable netrw
 let g:loaded_netrw       = 1
@@ -188,8 +186,6 @@ let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_enter = 0
 
 let g:airline#extensions#ale#enabled = 0
-
-" imap <F5> <C-r>=strftime('%c')<CR>
 
 filetype plugin on
 
