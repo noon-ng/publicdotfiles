@@ -1,3 +1,5 @@
+nmap Y y$
+
 nmap , \
 vmap , \
 
@@ -27,3 +29,5 @@ nmap <silent> <leader>d <Plug>DashSearch
 if has('nvim')
   tmap <C-o> <C-\><C-n>
 endif
+
+nnoremap <leader>n :NnnPicker '%:p:h'<CR>

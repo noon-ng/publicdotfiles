@@ -4,7 +4,6 @@ set backspace=indent,eol,start
 set colorcolumn=80,100
 set hidden " Allow switching between buffers with unsaved changes
 set ignorecase
-set inccommand=nosplit " Auto-reload buffers when file changed on disk (FIXME kinda flaky)
 set incsearch
 set lazyredraw
 set list
@@ -35,7 +34,10 @@ if !has('nvim')
   set term=xterm-256color
 endif
 
+if has('nvim')
+  set inccommand=split
+endif
+
 " Disable netrw
 let g:loaded_netrw       = 1
 let g:loaded_netrwPlugin = 1
-

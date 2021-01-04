@@ -21,4 +21,5 @@ call plug#begin('~/.vim/plugged')
   Plug 'machakann/vim-highlightedyank'
   Plug 'mtth/scratch.vim'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'jxnblk/vim-mdx-js'
 call plug#end()
