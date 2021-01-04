@@ -14,8 +14,6 @@ source ~/.nunopublic/vim/vimscratch.vim
 source ~/.nunopublic/vim/ctrlp.vim
 source ~/.nunopublic/vim/ruby.vim
 source ~/.nunopublic/vim/ale.vim
-
-runtime macros/matchit.vim
-
 source ~/.nunopublic/vim/coc.vim
 
+runtime macros/matchit.vim

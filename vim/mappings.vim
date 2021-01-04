@@ -20,6 +20,7 @@ nmap <silent> <CR> :TestFile <CR>
 nnoremap Q <Nop>
 
 command! Q q
+command! Qa qa
 command! W w
 command! Wq wq
 command! WQ wq
