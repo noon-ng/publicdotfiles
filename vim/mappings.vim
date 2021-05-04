@@ -30,10 +30,16 @@ command! W w
 command! Wq wq
 command! WQ wq
 
-nmap <silent> <leader>d <Plug>DashSearch
-
 if has('nvim')
   tmap <C-o> <C-\><C-n>
 endif
 
 nnoremap <leader>n :NnnPicker '%:p:h'<CR>
+
+nmap <silent> <Leader>p :PromoteToLet<CR>
+nmap <silent> <Leader>l :DemoteToAssignment<CR>
+nmap <silent> <Leader>m :PromoteToMethod<CR>
+
+nmap <silent> <C-a> :A<CR>
+
+nmap <leader>] :call fzf#vim#ag(expand('<cword>'))<CR>
