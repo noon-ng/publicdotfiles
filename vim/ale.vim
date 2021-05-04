@@ -8,6 +8,7 @@ let g:ale_fixers = {
       \ 'jsx': ['prettier'],
       \ 'ruby': ['rubocop'],
       \ }
+let g:ale_ruby_rubocop_options = '--except Rspec/Focus'
 let g:ale_history_enabled = 0
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_insert_leave = 1

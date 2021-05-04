@@ -22,6 +22,8 @@ nmap <silent> <C-c> :Buffers<CR>
 
 nmap <silent> <CR> :TestFile <CR>
 
+nmap <silent> <F5> :TestNearest <CR>
+
 nnoremap Q <Nop>
 
 command! Q q

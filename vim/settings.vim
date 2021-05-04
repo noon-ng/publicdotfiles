@@ -41,3 +41,5 @@ endif
 " Disable netrw
 let g:loaded_netrw       = 1
 let g:loaded_netrwPlugin = 1
+
+let g:python3_host_prog='/usr/local/bin/python3'
