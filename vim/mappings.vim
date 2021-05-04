@@ -10,6 +10,11 @@ vnoremap <M-]> :bn<CR>
 nnoremap <M-[> :bp<CR>
 vnoremap <M-[> :bp<CR>
 
+map <silent> <m-h> <C-w>h
+map <silent> <m-j> <C-w>j
+map <silent> <m-k> <C-w>k
+map <silent> <m-l> <C-w>l
+
 nmap <silent> <Leader>a :Rg<CR>
 nmap <silent> <Leader>A :GitFiles<CR>
 nmap <silent> <C-p> :GFiles --exclude-standard --others --cached<CR>
